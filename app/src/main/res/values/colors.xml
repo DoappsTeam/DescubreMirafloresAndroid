@@ -3,4 +3,16 @@
     <color name="blue">#2196F3</color>
     <color name="orange">#FFC107</color>
     <color name="green">#8BC34A</color>
+
+    <!-- Category Colors -->
+    <color name="brown">#8D6E63</color>
+    <color name="brown_disable">#8E7E79</color>
+    <color name="red">#F44336</color>
+    <color name="red_disable">#F26561</color>
+    <color name="green_enable">#26A69A</color>
+    <color name="green_disable">#5AA39A</color>
+    <color name="yellow">#AFB42B</color>
+    <color name="yellow_disable">#C1C159</color>
+    <color name="orange_enable">#FF5722</color>
+    <color name="orange_disable">#F97653</color>
 </resources>
