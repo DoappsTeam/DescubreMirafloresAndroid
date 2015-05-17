@@ -23,10 +23,8 @@ import io.codetail.animation.SupportAnimator;
 import io.codetail.animation.ViewAnimationUtils;
 import me.doapps.miraflores.R;
 import me.doapps.miraflores.fragments.ContentFragment;
-import me.doapps.miraflores.fragments.OrderedFragment;
-import me.doapps.miraflores.fragments.RandomFragment;
+import me.doapps.miraflores.fragments.RandomTimerFragment;
 import me.doapps.miraflores.fragments.SettingsFragment;
-import me.doapps.miraflores.fragments.TabsFragment;
 import yalantis.com.sidemenu.interfaces.Resourceble;
 import yalantis.com.sidemenu.interfaces.ScreenShotable;
 import yalantis.com.sidemenu.model.SlideMenuItem;
@@ -72,7 +70,7 @@ public class MenuActivity extends ActionBarActivity implements ViewAnimator.View
             public Bitmap getBitmap() {
                 return null;
             }
-        }, 0, new TabsFragment());
+        }, 0, new RandomTimerFragment());
     }
 
     private void createMenuList() {
@@ -180,16 +178,16 @@ public class MenuActivity extends ActionBarActivity implements ViewAnimator.View
             case ContentFragment.CLOSE:
                 return screenShotable;
             case ContentFragment.MUSEUM:
-                return replaceFragment(screenShotable, position, new RandomFragment());
+                return replaceFragment(screenShotable, position, new SettingsFragment());
             case ContentFragment.FOOD:
-                return replaceFragment(screenShotable, position, new OrderedFragment());
+                return replaceFragment(screenShotable, position, new SettingsFragment());
             case ContentFragment.TOURIST:
                 return replaceFragment(screenShotable, position, new SettingsFragment());
             case ContentFragment.PARK:
                 return replaceFragment(screenShotable, position, new SettingsFragment());
             case ContentFragment.CULTURE:
                 //return replaceFragment(screenShotable, position, new SettingsFragment());
-                return replaceFragment(screenShotable, position, new TabsFragment());
+                return replaceFragment(screenShotable, position, new SettingsFragment());
             default:
                 //return replaceFragment(screenShotable, position, fragment);
                 return null;

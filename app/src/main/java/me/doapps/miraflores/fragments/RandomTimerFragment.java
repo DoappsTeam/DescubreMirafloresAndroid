@@ -3,6 +3,7 @@ package me.doapps.miraflores.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,17 @@ import me.doapps.miraflores.R;
 /**
  * Created by william on 17/05/2015.
  */
-public class RandomFragment extends Fragment implements SwipeView.OnCardSwipedListener{
-
+public class RandomTimerFragment extends Fragment implements SwipeView.OnCardSwipedListener {
+    private String receive;
+/*
+    public static final RandomTimerFragment newInstance(String flag) {
+        RandomTimerFragment randomTimerFragment = new RandomTimerFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("FLAG", flag);
+        randomTimerFragment.setArguments(bundle);
+        return randomTimerFragment;
+    }
+*/
     private final static int CARDS_MAX_ELEMENTS = 5;
 
     private FrameLayout contentLayout;
@@ -32,13 +42,12 @@ public class RandomFragment extends Fragment implements SwipeView.OnCardSwipedLi
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_random, container, false);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_tabs, container, false);
         contentLayout = (FrameLayout) view.findViewById(R.id.contentLayout);
 
         // Add the swipe view
-        mSwipeView = new SwipeView(getActivity(), R.id.imgSwipeLike, R.id.imgSwipeNope,
-                this);
+        mSwipeView = new SwipeView(getActivity(), R.id.imgSwipeLike, R.id.imgSwipeNope, this);
         contentLayout.addView(mSwipeView);
 
         // Adding the cards initially with the maximum limits of cards.
@@ -46,27 +55,6 @@ public class RandomFragment extends Fragment implements SwipeView.OnCardSwipedLi
             addCard(i);
         }
         return view;
-    }
-
-    public void onClickedView(View clickedView) {
-        switch (clickedView.getId()) {
-            case R.id.imgDisLike: {
-                mSwipeView.dislikeCard();
-                break;
-            }
-
-            case R.id.imgLike: {
-                mSwipeView.likeCard();
-                break;
-            }
-            default:
-                break;
-        }
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
     }
 
     @Override
@@ -90,9 +78,11 @@ public class RandomFragment extends Fragment implements SwipeView.OnCardSwipedLi
 
     private void addCard(int position) {
         final View cardView = LayoutInflater.from(getActivity()).inflate(R.layout.item_swipe_view, null);
-        final ImageView imgBike = (ImageView) cardView
-                .findViewById(R.id.imgBike);
-        imgBike.setImageResource(bikes[count]);
+        final FrameLayout frameLayout = (FrameLayout) cardView.findViewById(R.id.event);
+
+        //final ImageView imgBike = (ImageView) cardView
+        //        .findViewById(R.id.imgBike);
+        //imgBike.setImageResource(bikes[count]);
         count++;
         if (count == bikes.length) {
             count = 0;
@@ -101,3 +91,4 @@ public class RandomFragment extends Fragment implements SwipeView.OnCardSwipedLi
         mSwipeView.addCard(cardView, position);
     }
 }
+
