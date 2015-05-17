@@ -50,16 +50,16 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 imgMuseum.setImageDrawable(getResources().getDrawable(R.drawable.selector_brown_disable));
                 break;
             case R.id.imgFood:
-                imgMuseum.setImageDrawable(getResources().getDrawable(R.drawable.selector_red_disable));
+                imgFood.setImageDrawable(getResources().getDrawable(R.drawable.selector_red_disable));
                 break;
             case R.id.imgCulture:
-                imgMuseum.setImageDrawable(getResources().getDrawable(R.drawable.selector_green_disable));
+                imgCulture.setImageDrawable(getResources().getDrawable(R.drawable.selector_green_disable));
                 break;
             case R.id.imgPark:
-                imgMuseum.setImageDrawable(getResources().getDrawable(R.drawable.selector_yellow_disable));
+                imgPark.setImageDrawable(getResources().getDrawable(R.drawable.selector_yellow_disable));
                 break;
             case R.id.imgTourist:
-                imgMuseum.setImageDrawable(getResources().getDrawable(R.drawable.selector_orange_disable));
+                imgTourist.setImageDrawable(getResources().getDrawable(R.drawable.selector_orange_disable));
                 break;
             default:break;
         }
