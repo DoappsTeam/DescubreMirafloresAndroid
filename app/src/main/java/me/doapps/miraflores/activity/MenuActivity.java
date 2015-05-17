@@ -42,7 +42,6 @@ public class MenuActivity extends ActionBarActivity implements ViewAnimator.View
     private int res = R.mipmap.content_music;
     private LinearLayout linearLayout;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,9 +65,7 @@ public class MenuActivity extends ActionBarActivity implements ViewAnimator.View
         viewAnimator = new ViewAnimator<>(this, list, contentFragment, drawerLayout, this);
         replaceFragment(new ScreenShotable() {
             @Override
-            public void takeScreenShot() {
-
-            }
+            public void takeScreenShot() {}
 
             @Override
             public Bitmap getBitmap() {
@@ -78,22 +75,18 @@ public class MenuActivity extends ActionBarActivity implements ViewAnimator.View
     }
 
     private void createMenuList() {
-        SlideMenuItem menuItem0 = new SlideMenuItem(ContentFragment.CLOSE, R.mipmap.icn_close);
+        SlideMenuItem menuItem0 = new SlideMenuItem(ContentFragment.CLOSE, R.mipmap.ic_close);
         list.add(menuItem0);
-        SlideMenuItem menuItem = new SlideMenuItem(ContentFragment.BUILDING, R.mipmap.icn_1);
+        SlideMenuItem menuItem = new SlideMenuItem(ContentFragment.MUSEUM, R.mipmap.ic_museum);
         list.add(menuItem);
-        SlideMenuItem menuItem2 = new SlideMenuItem(ContentFragment.BOOK, R.mipmap.icn_2);
+        SlideMenuItem menuItem2 = new SlideMenuItem(ContentFragment.FOOD, R.mipmap.ic_food);
         list.add(menuItem2);
-        SlideMenuItem menuItem3 = new SlideMenuItem(ContentFragment.PAINT, R.mipmap.icn_3);
+        SlideMenuItem menuItem3 = new SlideMenuItem(ContentFragment.TOURIST, R.mipmap.ic_tourist);
         list.add(menuItem3);
-        SlideMenuItem menuItem4 = new SlideMenuItem(ContentFragment.CASE, R.mipmap.icn_4);
+        SlideMenuItem menuItem4 = new SlideMenuItem(ContentFragment.PARK, R.mipmap.ic_park);
         list.add(menuItem4);
-        SlideMenuItem menuItem5 = new SlideMenuItem(ContentFragment.SHOP, R.mipmap.icn_5);
+        SlideMenuItem menuItem5 = new SlideMenuItem(ContentFragment.CULTURE, R.mipmap.ic_culture);
         list.add(menuItem5);
-        SlideMenuItem menuItem6 = new SlideMenuItem(ContentFragment.PARTY, R.mipmap.icn_6);
-        list.add(menuItem6);
-        SlideMenuItem menuItem7 = new SlideMenuItem(ContentFragment.MOVIE, R.mipmap.icn_7);
-        list.add(menuItem7);
     }
 
     private void setActionBar() {
@@ -185,11 +178,15 @@ public class MenuActivity extends ActionBarActivity implements ViewAnimator.View
         switch (resourceble.getName()) {
             case ContentFragment.CLOSE:
                 return screenShotable;
-            case ContentFragment.BUILDING:
+            case ContentFragment.MUSEUM:
                 return replaceFragment(screenShotable, position, new RandomFragment());
-            case ContentFragment.BOOK:
+            case ContentFragment.FOOD:
                 return replaceFragment(screenShotable, position, new OrderedFragment());
-            case ContentFragment.PAINT:
+            case ContentFragment.TOURIST:
+                return replaceFragment(screenShotable, position, new SettingsFragment());
+            case ContentFragment.PARK:
+                return replaceFragment(screenShotable, position, new SettingsFragment());
+            case ContentFragment.CULTURE:
                 return replaceFragment(screenShotable, position, new SettingsFragment());
             default:
                 //return replaceFragment(screenShotable, position, fragment);
