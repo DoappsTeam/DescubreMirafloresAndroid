@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LibrarySeekbar/LibrarySeekbar.iml" filepath="$PROJECT_DIR$/LibrarySeekbar/LibrarySeekbar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Miraflores.iml" filepath="$PROJECT_DIR$/Miraflores.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MirafloresAndroid.iml" filepath="$PROJECT_DIR$/MirafloresAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library-debug/library-debug.iml" filepath="$PROJECT_DIR$/library-debug/library-debug.iml" />
     </modules>

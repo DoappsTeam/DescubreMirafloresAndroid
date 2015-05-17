@@ -1,5 +1,8 @@
 package me.doapps.miraflores.fragments;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,18 +10,26 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.rk.lib.view.SwipeView;
+import com.andtinder.model.CardModel;
+import com.andtinder.view.CardContainer;
+import com.andtinder.view.SimpleCardStackAdapter;
 
-import me.doapps.miraflores.R;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import me.doapps.miraflores.model.Entity_DTO;
 
 /**
  * Created by william on 17/05/2015.
  */
-public class RandomTimerFragment extends Fragment implements SwipeView.OnCardSwipedListener {
+public class RandomTimerFragment extends Fragment {
     private String receive;
+    int count = 0;
 /*
     public static final RandomTimerFragment newInstance(String flag) {
         RandomTimerFragment randomTimerFragment = new RandomTimerFragment();
@@ -28,67 +39,56 @@ public class RandomTimerFragment extends Fragment implements SwipeView.OnCardSwi
         return randomTimerFragment;
     }
 */
-    private final static int CARDS_MAX_ELEMENTS = 5;
-
-    private FrameLayout contentLayout;
-    private SwipeView mSwipeView;
-
-    private int[] bikes = { R.mipmap.img_bike_1, R.mipmap.img_bike_2,
-            R.mipmap.img_bike_3, R.mipmap.img_bike_4,
-            R.mipmap.img_bike_5, R.mipmap.img_bike_6,
-            R.mipmap.img_bike_7, R.mipmap.img_bike_8, R.mipmap.img_bike_9 };
-
-    private int count = 0;
+    SimpleCardStackAdapter adapter;
+    CardContainer mCardContainer;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tabs, container, false);
-        contentLayout = (FrameLayout) view.findViewById(R.id.contentLayout);
-
-        // Add the swipe view
-        mSwipeView = new SwipeView(getActivity(), R.id.imgSwipeLike, R.id.imgSwipeNope, this);
-        contentLayout.addView(mSwipeView);
-
-        // Adding the cards initially with the maximum limits of cards.
-        for (int i = 0; i < CARDS_MAX_ELEMENTS; i++) {
-            addCard(i);
-        }
+        mCardContainer = (CardContainer) view.findViewById(R.id.layoutview);
         return view;
     }
 
     @Override
-    public void onLikes() {
-        System.out.println("An Card removed");
-        // Add a card if you needed after any previous card swiped
-        addCard(0);
-    }
-
-    @Override
-    public void onDisLikes() {
-        System.out.println("An Card removed");
-        // Add a card if you needed after any previous card swiped
-        addCard(0);
-    }
-
-    @Override
-    public void onSingleTap() {
-
-    }
-
-    private void addCard(int position) {
-        final View cardView = LayoutInflater.from(getActivity()).inflate(R.layout.item_swipe_view, null);
-        final FrameLayout frameLayout = (FrameLayout) cardView.findViewById(R.id.event);
-
-        //final ImageView imgBike = (ImageView) cardView
-        //        .findViewById(R.id.imgBike);
-        //imgBike.setImageResource(bikes[count]);
-        count++;
-        if (count == bikes.length) {
-            count = 0;
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        adapter = new SimpleCardStackAdapter(getActivity());
+        count = 3;
+        for(int i=0; i<count; i++){
+            new downloadShow().execute(new Entity_DTO("1","name1","address1","123","","","","",0,0));
         }
-        // Add a card to the swipe view.
-        mSwipeView.addCard(cardView, position);
+    }
+
+    int i = 0;
+    class downloadShow extends AsyncTask<Entity_DTO, Void, Entity_DTO> {
+
+        @Override
+        protected Entity_DTO doInBackground(Entity_DTO... params) {
+            try {
+                URL url = new URL(params[0].getUrlBanner());
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoInput(true);
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                params[0].setBitmap(BitmapFactory.decodeStream(input));
+                return params[0];
+            } catch (Exception e1) {
+                Log.e("imageUtil", e1.toString());
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Entity_DTO entity_dto) {
+            super.onPostExecute(entity_dto);
+            i++;
+            adapter.add(new CardModel(entity_dto.getName(), entity_dto.getAddress() + ", 18/05/2015", entity_dto.getBitmap()));
+            if(i == count){
+                mCardContainer.setAdapter(adapter);
+            }
+
+        }
     }
 }
 

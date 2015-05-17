@@ -54,10 +54,9 @@ public class OrderedFragment extends Fragment implements SwipeRefreshLayout.OnRe
         toolbar = (Toolbar)getActivity().findViewById(R.id.toolbar);
 
         entity_dtos = new ArrayList<>();
-        entity_dtos.add(new Entity_DTO("Mc Donals"));
-        entity_dtos.add(new Entity_DTO("Rockys"));
-        entity_dtos.add(new Entity_DTO("Popeyes"));
-        entity_dtos.add(new Entity_DTO("Ripley"));
+        entity_dtos.add(new Entity_DTO("1","name","address","123456","sulca@gmail.com","","","",0,0));
+        entity_dtos.add(new Entity_DTO("1","name","address","123456","sulca@gmail.com","","","",0,0));
+        entity_dtos.add(new Entity_DTO("1","name","address","123456","sulca@gmail.com","","","",0,0));
 
         adapter = new SwipeListAdapter(entity_dtos, getActivity());
         listEvents.setAdapter(adapter);
