@@ -13,30 +13,31 @@ import java.util.List;
 
 import me.doapps.miraflores.R;
 import me.doapps.miraflores.helper.Movie;
+import me.doapps.miraflores.model.Entity_DTO;
 
 /**
  * Created by william on 17/05/2015.
  */
 public class SwipeListAdapter extends BaseAdapter {
-    private Activity activity;
     private LayoutInflater inflater;
-    private List<Movie> movieList;
-    private String[] bgColors;
+    private List<Entity_DTO> entity_dtos;
+    private Context context;
 
-    public SwipeListAdapter(Activity activity, List<Movie> movieList) {
-        this.activity = activity;
-        this.movieList = movieList;
-        bgColors = activity.getApplicationContext().getResources().getStringArray(R.array.movie_serial_bg);
+
+    public SwipeListAdapter(List<Entity_DTO> entity_dtos, Context context) {
+        this.entity_dtos = entity_dtos;
+        this.context = context;
+        this.inflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return movieList.size();
+        return entity_dtos.size();
     }
 
     @Override
     public Object getItem(int location) {
-        return movieList.get(location);
+        return entity_dtos.get(location);
     }
 
     @Override
@@ -46,23 +47,27 @@ public class SwipeListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        Holder holder = null;
+        Entity_DTO entity_dto = entity_dtos.get(position);
 
-        if (inflater == null)
-            inflater = (LayoutInflater) activity
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        if (convertView == null)
-            convertView = inflater.inflate(R.layout.list_row, null);
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.item_event, parent, false);
+            holder = new Holder();
 
-        TextView serial = (TextView) convertView.findViewById(R.id.serial);
-        TextView title = (TextView) convertView.findViewById(R.id.title);
+            holder.textName = (TextView) convertView.findViewById(R.id.textName);
+            convertView.setTag(holder);
+        } else {
+            holder = (Holder) convertView.getTag();
+        }
 
-        serial.setText(String.valueOf(movieList.get(position).id));
-        title.setText(movieList.get(position).title);
-
-        String color = bgColors[position % bgColors.length];
-        serial.setBackgroundColor(Color.parseColor(color));
+        holder.textName.setText(entity_dto.getName());
 
         return convertView;
     }
 
+
+    /**Holder**/
+    class Holder{
+        TextView textName;
+    }
 }

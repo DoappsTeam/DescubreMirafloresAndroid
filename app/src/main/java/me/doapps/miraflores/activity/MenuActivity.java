@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ import me.doapps.miraflores.R;
 import me.doapps.miraflores.fragments.ContentFragment;
 import me.doapps.miraflores.fragments.RandomTimerFragment;
 import me.doapps.miraflores.fragments.SettingsFragment;
+import me.doapps.miraflores.util.FontUtil;
 import yalantis.com.sidemenu.interfaces.Resourceble;
 import yalantis.com.sidemenu.interfaces.ScreenShotable;
 import yalantis.com.sidemenu.model.SlideMenuItem;
@@ -90,6 +92,10 @@ public class MenuActivity extends ActionBarActivity implements ViewAnimator.View
 
     private void setActionBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        TextView toolbarTitle = (TextView) findViewById(R.id.toolbarTitle);
+        toolbarTitle.setTypeface(FontUtil.setConconBold(MenuActivity.this));
+        toolbar.setBackgroundColor(getResources().getColor(R.color.blue));
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

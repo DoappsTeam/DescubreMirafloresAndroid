@@ -11,4 +11,7 @@
     <!-- Settings String -->
     <string name="distance_filter">¿Rango de distancia?</string>
     <string name="category_filter">¿Que tipo de eventos o lugares son de tu agrado?</string>
+
+    <!-- Toolbar String -->
+    <string name="miraflores_title">miraflores</string>
 </resources>
