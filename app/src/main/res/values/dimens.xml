@@ -3,4 +3,11 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="sliding_menu_width">80dp</dimen>
+
+
+    <!-- EfectTinder -->
+    <dimen name="stroke_width">1dp</dimen>
+    <dimen name="content_padding">5dp</dimen>
+    <dimen name="zero_dp">0dp</dimen>
+    <dimen name="divider_width">1dp</dimen>
 </resources>

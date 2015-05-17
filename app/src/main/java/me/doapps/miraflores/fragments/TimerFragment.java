@@ -12,16 +12,16 @@ import me.doapps.miraflores.R;
 /**
  * Created by william on 17/05/2015.
  */
-public class TimeFragment extends Fragment {
+public class TimerFragment extends Fragment {
 
-    public static final TimeFragment newInstance() {
-        return new TimeFragment();
+    public static final TimerFragment newInstance() {
+        return new TimerFragment();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_random, container, false);
+        View view = inflater.inflate(R.layout.fragment_timer, container, false);
         return view;
     }
 

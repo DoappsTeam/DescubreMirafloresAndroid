@@ -5,6 +5,8 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
 
+    <!-- item_swipe_view -->
+    <string name="action_image">Action Image</string>
 
     <!-- Settings String -->
     <string name="distance_filter">¿Rango de distancia?</string>

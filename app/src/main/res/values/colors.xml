@@ -16,14 +16,11 @@
     <color name="orange_enable">#FF5722</color>
     <color name="orange_disable">#F97653</color>
 
-<<<<<<< HEAD
     <!-- Base Colors -->
     <color name="white">#FFFFFF</color>
     <color name="yellow_forte">#FFC107</color>
-=======
 
 
->>>>>>> 75d8e0787490ce360a5c04350d9fc55d73cd7443
 
     <string-array name="movie_serial_bg">
         <item>#24c6d5</item>
@@ -33,4 +30,7 @@
         <item>#fcba59</item>
         <item>#24c6d5</item>
     </string-array>
+
+    <!-- EfectTinder -->
+    <color name="bg_app">#2B2961</color>
 </resources>
