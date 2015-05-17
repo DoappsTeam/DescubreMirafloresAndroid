@@ -24,8 +24,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'com.github.ozodrukh:CircularReveal:1.0.4'
     compile project(':library-debug')
+    compile project(':LibrarySeekbar')
 }

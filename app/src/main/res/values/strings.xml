@@ -4,4 +4,9 @@
     <string name="action_settings">Settings</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+
+
+    <!-- Settings String -->
+    <string name="distance_filter">¿Rango de distancia?</string>
+    <string name="category_filter">¿Que tipo de eventos o lugares son de tu agrado?</string>
 </resources>
