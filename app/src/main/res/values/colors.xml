@@ -15,4 +15,8 @@
     <color name="yellow_disable">#C1C159</color>
     <color name="orange_enable">#FF5722</color>
     <color name="orange_disable">#F97653</color>
+
+    <!-- Base Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="yellow_forte">#FFC107</color>
 </resources>
