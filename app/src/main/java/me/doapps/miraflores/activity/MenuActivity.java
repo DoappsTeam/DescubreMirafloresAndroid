@@ -26,6 +26,7 @@ import me.doapps.miraflores.fragments.ContentFragment;
 import me.doapps.miraflores.fragments.OrderedFragment;
 import me.doapps.miraflores.fragments.RandomFragment;
 import me.doapps.miraflores.fragments.SettingsFragment;
+import me.doapps.miraflores.fragments.TabsFragment;
 import yalantis.com.sidemenu.interfaces.Resourceble;
 import yalantis.com.sidemenu.interfaces.ScreenShotable;
 import yalantis.com.sidemenu.model.SlideMenuItem;
@@ -71,7 +72,7 @@ public class MenuActivity extends ActionBarActivity implements ViewAnimator.View
             public Bitmap getBitmap() {
                 return null;
             }
-        }, 0, new RandomFragment());
+        }, 0, new TabsFragment());
     }
 
     private void createMenuList() {
@@ -187,7 +188,8 @@ public class MenuActivity extends ActionBarActivity implements ViewAnimator.View
             case ContentFragment.PARK:
                 return replaceFragment(screenShotable, position, new SettingsFragment());
             case ContentFragment.CULTURE:
-                return replaceFragment(screenShotable, position, new SettingsFragment());
+                //return replaceFragment(screenShotable, position, new SettingsFragment());
+                return replaceFragment(screenShotable, position, new TabsFragment());
             default:
                 //return replaceFragment(screenShotable, position, fragment);
                 return null;
