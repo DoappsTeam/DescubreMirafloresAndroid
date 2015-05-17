@@ -16,6 +16,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="@string/distance_filter"
         android:textSize="18sp" />
 
@@ -24,7 +25,7 @@
         android:id="@+id/discrete3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         app:dsb_indicatorFormatter="%04d"
         app:dsb_max="1000"
         app:dsb_min="1" />
@@ -32,11 +33,67 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="@string/category_filter"
         android:textSize="18sp" />
-    
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"></LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgMuseum"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/selector_brown_enable"
+            android:padding="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/ic_museum" />
+
+        <ImageView
+            android:id="@+id/imgFood"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/selector_red_enable"
+            android:padding="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/ic_food" />
+
+        <ImageView
+            android:id="@+id/imgCulture"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/selector_green_enable"
+            android:padding="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/ic_culture" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgPark"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/selector_yellow_enable"
+            android:padding="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/ic_park" />
+
+        <ImageView
+            android:id="@+id/imgTourist"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/selector_orange_enable"
+            android:padding="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/ic_tourist" />
+
+    </LinearLayout>
 
 </LinearLayout>
