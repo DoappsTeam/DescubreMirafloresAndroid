@@ -31,6 +31,6 @@ dependencies {
     compile project(':LibrarySeekbar')
 
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
-    compile 'com.github.kikoso:SwipeableCards:1.1-RELEASE@aar'
+    compile 'com.google.android.gms:play-services:6.5.87'
     compile 'com.squareup.picasso:picasso:2.5.0'
 }

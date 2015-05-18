@@ -37,7 +37,7 @@
         android:padding="10dp">
 
         <ImageView
-            android:id="@+id/logo"
+            android:id="@+id/banner"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

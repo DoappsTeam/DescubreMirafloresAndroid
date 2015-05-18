@@ -22,9 +22,11 @@ import java.util.List;
 
 import io.codetail.animation.SupportAnimator;
 import io.codetail.animation.ViewAnimationUtils;
+
 import me.doapps.miraflores.R;
 import me.doapps.miraflores.fragments.ContentFragment;
-import me.doapps.miraflores.fragments.RandomTimerFragment;
+import me.doapps.miraflores.fragments.OrderedFragment;
+
 import me.doapps.miraflores.fragments.SettingsFragment;
 import me.doapps.miraflores.util.FontUtil;
 import yalantis.com.sidemenu.interfaces.Resourceble;
@@ -72,7 +74,7 @@ public class MenuActivity extends ActionBarActivity implements ViewAnimator.View
             public Bitmap getBitmap() {
                 return null;
             }
-        }, 0, new RandomTimerFragment());
+        }, 0, new OrderedFragment());
     }
 
     private void createMenuList() {
@@ -155,6 +157,7 @@ public class MenuActivity extends ActionBarActivity implements ViewAnimator.View
         }
         switch (item.getItemId()) {
             case R.id.action_settings:
+                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new SettingsFragment()).commit();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -184,15 +187,14 @@ public class MenuActivity extends ActionBarActivity implements ViewAnimator.View
             case ContentFragment.CLOSE:
                 return screenShotable;
             case ContentFragment.MUSEUM:
-                return replaceFragment(screenShotable, position, new SettingsFragment());
+                return replaceFragment(screenShotable, position, new OrderedFragment());
             case ContentFragment.FOOD:
-                return replaceFragment(screenShotable, position, new SettingsFragment());
+                return replaceFragment(screenShotable, position, new OrderedFragment());
             case ContentFragment.TOURIST:
-                return replaceFragment(screenShotable, position, new SettingsFragment());
+                return replaceFragment(screenShotable, position, new OrderedFragment());
             case ContentFragment.PARK:
-                return replaceFragment(screenShotable, position, new SettingsFragment());
+                return replaceFragment(screenShotable, position, new OrderedFragment());
             case ContentFragment.CULTURE:
-                //return replaceFragment(screenShotable, position, new SettingsFragment());
                 return replaceFragment(screenShotable, position, new SettingsFragment());
             default:
                 //return replaceFragment(screenShotable, position, fragment);

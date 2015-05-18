@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import me.doapps.miraflores.R;
@@ -16,14 +17,14 @@ import me.doapps.miraflores.R;
  */
 public class SplashActivity extends ActionBarActivity {
     private ImageView imageLogo;
-    private RelativeLayout relativeLayout;
+    private LinearLayout relativeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
+        relativeLayout = (LinearLayout) findViewById(R.id.relativeLayout);
         imageLogo = (ImageView) findViewById(R.id.imageLogo);
 
         startAnimations();

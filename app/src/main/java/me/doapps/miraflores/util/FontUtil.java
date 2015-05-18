@@ -10,4 +10,8 @@ public class FontUtil {
     public static Typeface setConconBold(Context context){
         return Typeface.createFromAsset(context.getAssets(), "fonts/coconbold.otf");
     }
+    public static Typeface setSohoLight(Context context){
+        return Typeface.createFromAsset(context.getAssets(), "fonts/SohoGothicProLight.otf");
+    }
 }
+
